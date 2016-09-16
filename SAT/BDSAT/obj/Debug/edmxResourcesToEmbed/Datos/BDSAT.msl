@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SATModelStoreContainer" CdmEntityContainer="SATEntities">
+    <EntitySetMapping Name="LogPagoRemesa">
+      <EntityTypeMapping TypeName="SATModel.LogPagoRemesa">
+        <MappingFragment StoreEntitySet="LogPagoRemesa">
+          <ScalarProperty Name="idPagoRemesa" ColumnName="idPagoRemesa" />
+          <ScalarProperty Name="idRemesa" ColumnName="idRemesa" />
+          <ScalarProperty Name="montoRemesa" ColumnName="montoRemesa" />
+          <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="SATModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

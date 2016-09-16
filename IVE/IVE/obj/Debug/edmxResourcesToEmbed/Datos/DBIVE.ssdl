@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Remesa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Remesa" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Nombre_Emisor" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Correo_Emisor" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Doc_Identificacion_Emisor" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Direccion_Emisor" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="No_Telefono_Emisor" Type="int" Nullable="false" />
+    <Property Name="Nombre_Receptor" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Correo_Receptor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Doc_Identificacion_Receptor" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Direccion_Receptor" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="No_Telefono_Receptor" Type="int" Nullable="false" />
+    <Property Name="Fecha_Recepcion_Remesa" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="IVEModelStoreContainer">
+    <EntitySet Name="Remesa" EntityType="Self.Remesa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

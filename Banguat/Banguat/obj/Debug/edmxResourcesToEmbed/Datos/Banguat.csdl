@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BanguatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TasaCambio">
+    <Key>
+      <PropertyRef Name="idTipoCambio" />
+    </Key>
+    <Property Name="idTipoCambio" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoCambioCompra" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="tipoCambioVenta" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="BanguatEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TasaCambio" EntityType="Self.TasaCambio" />
+    <EntitySet Name="Monto" EntityType="BanguatModel.Monto" />
+    <EntitySet Name="Usuario" EntityType="BanguatModel.Usuario" />
+  </EntityContainer>
+  <EntityType Name="Monto">
+    <Key>
+      <PropertyRef Name="idMinMax" />
+    </Key>
+    <Property Name="idMinMax" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="montoMin" Type="Int32" />
+    <Property Name="montoMax" Type="Int32" />
+    <Property Name="fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

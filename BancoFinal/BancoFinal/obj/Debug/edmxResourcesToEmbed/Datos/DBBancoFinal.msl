@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BancoFinalModelStoreContainer" CdmEntityContainer="BancoFinalEntities">
+    <EntitySetMapping Name="Remesas">
+      <EntityTypeMapping TypeName="BancoFinalModel.Remesas">
+        <MappingFragment StoreEntitySet="Remesas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idRemesa" ColumnName="idRemesa" />
+          <ScalarProperty Name="montoUSD" ColumnName="montoUSD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BancoFinalModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

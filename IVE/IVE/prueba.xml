@@ -1,0 +1,14 @@
+<	ConsultaRemesasRegistradas	>
+	<Exito>1</Exito>
+	<Remesa	IdRemesa=”23”>
+	<MontoUS></MontoUS>
+	<NombreCompletoEmisor></NombreCompletoEmisor>
+	<CorreoEmisor></CorreoEmisor>
+	<DocumentoIdentificacionEmisor></DocumentoIdentificacionEmisor>
+	<NoTelefonoEmisor></NoTelefonoEmisor>
+	<NombreCompletoReceptor></NombreCompletoReceptor>
+	<CorreoReceptor></CorreoReceptor>
+	<DocumentoIdentificacionReceptor></DocumentoIdentificacionReceptor>
+	<NoTelefonoReceptor></NoTelefonoReceptor>
+	</Remesa>
+</	ConsultaRemesasRegistradas	>

@@ -1,0 +1,6 @@
+﻿Generated model file: BDEmpresaEmisora.edmx.
+Loading metadata from the database took 00:00:00.7019508.
+Generating the model took 00:00:01.8189065.
+Generated model file: BDEmpresaEmisora.edmx.
+Loading metadata from the database took 00:00:00.5825683.
+Generating the model took 00:00:01.5408809.

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SATModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LogPagoRemesa">
+    <Key>
+      <PropertyRef Name="idPagoRemesa" />
+    </Key>
+    <Property Name="idPagoRemesa" Type="Int32" Nullable="false" />
+    <Property Name="idRemesa" Type="Int32" />
+    <Property Name="montoRemesa" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="impuesto" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SATEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LogPagoRemesa" EntityType="Self.LogPagoRemesa" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+  </EntityContainer>
+</Schema>

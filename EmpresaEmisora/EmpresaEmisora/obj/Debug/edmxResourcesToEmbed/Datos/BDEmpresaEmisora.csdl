@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpresaEmisoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="documento_identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="correo_electronico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="no_telefono" Type="Int32" />
+    <Property Name="no_cuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Remesa" Relationship="EmpresaEmisoraModel.FK_Remesa_Cliente" FromRole="Cliente" ToRole="Remesa" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="EmpresaEmisoraEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Remesa" EntityType="EmpresaEmisoraModel.Remesa" />
+    <EntitySet Name="sysdiagrams" EntityType="EmpresaEmisoraModel.sysdiagrams" />
+    <AssociationSet Name="FK_Remesa_Cliente" Association="EmpresaEmisoraModel.FK_Remesa_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Remesa" EntitySet="Remesa" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Remesa">
+    <Key>
+      <PropertyRef Name="idRemesa" />
+    </Key>
+    <Property Name="idRemesa" Type="Int32" Nullable="false" />
+    <Property Name="ID_Cliente" Type="Int32" />
+    <Property Name="Nombre_Receptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo_Receptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DPI_Receptor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Estado_Remesa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cliente" Relationship="EmpresaEmisoraModel.FK_Remesa_Cliente" FromRole="Remesa" ToRole="Cliente" />
+    <Property Name="CodigoSeguridad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fechaEnvio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MontoUSD" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MontoQ" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Remesa_Cliente">
+    <End Type="EmpresaEmisoraModel.Cliente" Role="Cliente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EmpresaEmisoraModel.Remesa" Role="Remesa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Remesa">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

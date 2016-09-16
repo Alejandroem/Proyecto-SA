@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IVEModelStoreContainer" CdmEntityContainer="IVEEntities">
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="IVEModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Remesa">
+      <EntityTypeMapping TypeName="IVEModel.Remesa">
+        <MappingFragment StoreEntitySet="Remesa">
+          <ScalarProperty Name="Fecha_Recepcion_Remesa" ColumnName="Fecha_Recepcion_Remesa" />
+          <ScalarProperty Name="No_Telefono_Receptor" ColumnName="No_Telefono_Receptor" />
+          <ScalarProperty Name="Direccion_Receptor" ColumnName="Direccion_Receptor" />
+          <ScalarProperty Name="Doc_Identificacion_Receptor" ColumnName="Doc_Identificacion_Receptor" />
+          <ScalarProperty Name="Correo_Receptor" ColumnName="Correo_Receptor" />
+          <ScalarProperty Name="Nombre_Receptor" ColumnName="Nombre_Receptor" />
+          <ScalarProperty Name="No_Telefono_Emisor" ColumnName="No_Telefono_Emisor" />
+          <ScalarProperty Name="Direccion_Emisor" ColumnName="Direccion_Emisor" />
+          <ScalarProperty Name="Doc_Identificacion_Emisor" ColumnName="Doc_Identificacion_Emisor" />
+          <ScalarProperty Name="Correo_Emisor" ColumnName="Correo_Emisor" />
+          <ScalarProperty Name="Nombre_Emisor" ColumnName="Nombre_Emisor" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="ID_Remesa" ColumnName="ID_Remesa" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

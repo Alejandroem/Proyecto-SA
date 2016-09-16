@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpresaEmisoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="documento_identificacion" Type="varchar" MaxLength="20" />
+    <Property Name="correo_electronico" Type="varchar" MaxLength="30" />
+    <Property Name="no_telefono" Type="int" />
+    <Property Name="no_cuenta" Type="varchar" MaxLength="20" />
+    <Property Name="tipo_cuenta" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Remesa">
+    <Key>
+      <PropertyRef Name="idRemesa" />
+    </Key>
+    <Property Name="idRemesa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" />
+    <Property Name="Nombre_Receptor" Type="varchar" MaxLength="50" />
+    <Property Name="Correo_Receptor" Type="varchar" MaxLength="50" />
+    <Property Name="DPI_Receptor" Type="nchar" MaxLength="10" />
+    <Property Name="MontoUSD" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MontoQ" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Estado_Remesa" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoSeguridad" Type="varchar" MaxLength="10" />
+    <Property Name="fechaEnvio" Type="varchar" MaxLength="50" />
+    <Property Name="fechaEntrega" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="pass" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_Remesa_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Remesa" Type="Self.Remesa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Remesa">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmpresaEmisoraModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Remesa" EntityType="Self.Remesa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Remesa_Cliente" Association="Self.FK_Remesa_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Remesa" EntitySet="Remesa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegistrarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreCompleto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentoIdentificacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoTelefono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoCuenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoCuenta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarRemesa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idClienteEnvia" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreReceptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorreoReceptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DpiReceptor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MontoUS" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="EstadoRemesa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarRemesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarRemesaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarRemesa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRemesa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarRemesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelarRemesaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaComisionPorRemesa">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultaComisionPorRemesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaComisionPorRemesaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CodigoSeguridadIdRemesa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRemesa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoSeguridad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CodigoSeguridadIdRemesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoSeguridadIdRemesaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarRemesas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRemesa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreCompletoEmisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreCompletoReceptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MontoQ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MontoUS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaEnvio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaEntrega" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarRemesasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarRemesasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaRemesaEspecifica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRemesa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreCompletoEmisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreCompletoReceptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MontoQ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MontoUS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaEnvio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaEntrega" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaRemesaEspecificaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaRemesaEspecificaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CambioEstadoRemesa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasenia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdBancoReceptor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRemesa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NuevoEstadoRemesa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CambioEstadoRemesaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CambioEstadoRemesaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistrarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarRemesaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarRemesa" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarRemesaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarRemesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarRemesaSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarRemesa" />
+  </wsdl:message>
+  <wsdl:message name="CancelarRemesaSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarRemesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaComisionPorRemesaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaComisionPorRemesa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaComisionPorRemesaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaComisionPorRemesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CodigoSeguridadIdRemesaSoapIn">
+    <wsdl:part name="parameters" element="tns:CodigoSeguridadIdRemesa" />
+  </wsdl:message>
+  <wsdl:message name="CodigoSeguridadIdRemesaSoapOut">
+    <wsdl:part name="parameters" element="tns:CodigoSeguridadIdRemesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarRemesasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarRemesas" />
+  </wsdl:message>
+  <wsdl:message name="ListarRemesasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarRemesasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaRemesaEspecificaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaRemesaEspecifica" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaRemesaEspecificaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaRemesaEspecificaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CambioEstadoRemesaSoapIn">
+    <wsdl:part name="parameters" element="tns:CambioEstadoRemesa" />
+  </wsdl:message>
+  <wsdl:message name="CambioEstadoRemesaSoapOut">
+    <wsdl:part name="parameters" element="tns:CambioEstadoRemesaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmpresaEmisoraSoap">
+    <wsdl:operation name="RegistrarCliente">
+      <wsdl:input message="tns:RegistrarClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRemesa">
+      <wsdl:input message="tns:RegistrarRemesaSoapIn" />
+      <wsdl:output message="tns:RegistrarRemesaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarRemesa">
+      <wsdl:input message="tns:CancelarRemesaSoapIn" />
+      <wsdl:output message="tns:CancelarRemesaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaComisionPorRemesa">
+      <wsdl:input message="tns:ConsultaComisionPorRemesaSoapIn" />
+      <wsdl:output message="tns:ConsultaComisionPorRemesaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoSeguridadIdRemesa">
+      <wsdl:input message="tns:CodigoSeguridadIdRemesaSoapIn" />
+      <wsdl:output message="tns:CodigoSeguridadIdRemesaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRemesas">
+      <wsdl:input message="tns:ListarRemesasSoapIn" />
+      <wsdl:output message="tns:ListarRemesasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRemesaEspecifica">
+      <wsdl:input message="tns:ConsultaRemesaEspecificaSoapIn" />
+      <wsdl:output message="tns:ConsultaRemesaEspecificaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CambioEstadoRemesa">
+      <wsdl:input message="tns:CambioEstadoRemesaSoapIn" />
+      <wsdl:output message="tns:CambioEstadoRemesaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmpresaEmisoraSoap" type="tns:EmpresaEmisoraSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarCliente">
+      <soap:operation soapAction="http://tempuri.org/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRemesa">
+      <soap:operation soapAction="http://tempuri.org/RegistrarRemesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarRemesa">
+      <soap:operation soapAction="http://tempuri.org/CancelarRemesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaComisionPorRemesa">
+      <soap:operation soapAction="http://tempuri.org/ConsultaComisionPorRemesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CodigoSeguridadIdRemesa">
+      <soap:operation soapAction="http://tempuri.org/CodigoSeguridadIdRemesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRemesas">
+      <soap:operation soapAction="http://tempuri.org/ListarRemesas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRemesaEspecifica">
+      <soap:operation soapAction="http://tempuri.org/ConsultaRemesaEspecifica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambioEstadoRemesa">
+      <soap:operation soapAction="http://tempuri.org/CambioEstadoRemesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmpresaEmisoraSoap12" type="tns:EmpresaEmisoraSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarCliente">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRemesa">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarRemesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarRemesa">
+      <soap12:operation soapAction="http://tempuri.org/CancelarRemesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaComisionPorRemesa">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaComisionPorRemesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CodigoSeguridadIdRemesa">
+      <soap12:operation soapAction="http://tempuri.org/CodigoSeguridadIdRemesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRemesas">
+      <soap12:operation soapAction="http://tempuri.org/ListarRemesas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRemesaEspecifica">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaRemesaEspecifica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambioEstadoRemesa">
+      <soap12:operation soapAction="http://tempuri.org/CambioEstadoRemesa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmpresaEmisora">
+    <wsdl:port name="EmpresaEmisoraSoap" binding="tns:EmpresaEmisoraSoap">
+      <soap:address location="http://localhost:59424/Logica/EmpresaEmisora.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmpresaEmisoraSoap12" binding="tns:EmpresaEmisoraSoap12">
+      <soap12:address location="http://localhost:59424/Logica/EmpresaEmisora.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
